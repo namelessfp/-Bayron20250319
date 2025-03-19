@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bayron20250319.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Bayron20250319.Controllers;
 
@@ -29,3 +30,5 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
+
+    
