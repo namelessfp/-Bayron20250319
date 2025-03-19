@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Bayron20250319.Data;
 using Bayron20250319.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Bayron20250319.Controllers
 {
@@ -54,10 +56,11 @@ namespace Bayron20250319.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Username,Email,PasswordHash,Role")] User user)
+        public async Task<IActionResult> Create([Bind("Nombre,Password,Email,ConfirmarPassword")] User user)
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
